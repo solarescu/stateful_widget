@@ -23,14 +23,17 @@ class MainHomePage extends StatefulWidget {
 }
 
 class _MainHomePageState extends State<MainHomePage> {
-  String text = 'Hello, Flutter University!';
+  String firstImageLink = 'https://picsum.photos/250?image=9';
+  String secondImageLink = 'https://picsum.photos/250?image=1';
 
-  void changeText() {
+  late String imageLink = firstImageLink;
+
+  void changeImage() {
     setState(() {
-      if (text == 'Hello, Flutter University!') {
-        text = 'You changed the text.';
+      if (imageLink == firstImageLink) {
+        imageLink = secondImageLink;
       } else {
-        text = 'Hello, Flutter University!';
+        imageLink = firstImageLink;
       }
     });
   }
@@ -45,10 +48,10 @@ class _MainHomePageState extends State<MainHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(text),
+            Image.network(imageLink),
             ElevatedButton(
-              onPressed: changeText,
-              child: const Text('Change text')
+              onPressed: changeImage,
+              child: const Text('Change image')
             ),
           ],
         )
